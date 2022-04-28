@@ -9,7 +9,7 @@
             name="name"
             placeholder="Name"
             @change="handleChange"
-            :value="form.first_name"
+            :value="form.name"
           />
         </div>
 
@@ -106,9 +106,9 @@ export default {
     },
     clearFormFields() {
       // clear form data
-      this.form.name = "";
       // this.form.first_name = "";
       // this.form.last_name = "";
+       this.form.name = "";
       this.form.email = "";
       this.form.isEdit = false;
 
