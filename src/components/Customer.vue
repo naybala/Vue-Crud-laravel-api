@@ -1,8 +1,8 @@
 <template>
   <tr>
-    <td>{{ customer.id }}</td>
-    <td>{{ customer.name }}</td>
-    <td>{{ customer.email }}</td>
+    <td>{{ customer.category_id }}</td>
+    <td>{{ customer.category_name }}</td>
+    <!-- <td>{{ customer.email }}</td> -->
     <td>
       <button class="mini ui blue button" @click="onEdit">Edit</button>
       <button class="mini ui red button" @click="onDelete">Delete</button>

@@ -6,7 +6,7 @@
           <tr>
             <th style="width: 50px; text-align: center;">#</th>
             <th>Name</th>
-            <th>E-mail</th>
+            <!-- <th>E-mail</th> -->
             <th style="width: 148px;">Action</th>
           </tr>
         </thead>

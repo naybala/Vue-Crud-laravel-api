@@ -31,10 +31,10 @@ export default {
   },
   data() {
     return {
-      url: "http://127.0.0.1:8000/api/user/list",
+      url: "http://127.0.0.1:8000/api/category/list",
       customers: [],
       // form: { first_name: "", last_name: "", email: "", isEdit: false },
-      form: {name: "", email: "", isEdit: false },
+      form: {category_name: "", isEdit: false },
       loader: false
     };
   },
@@ -64,7 +64,7 @@ export default {
 
     //Create
     createCustomer(data) {
-      console.log(data);
+      // console.log(data);
       this.loader = true;
 
       axios

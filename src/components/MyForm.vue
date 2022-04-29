@@ -2,8 +2,8 @@
   <div class="my-form">
     <form class="ui form">
       <div class="fields">
-        <div class="six wide field">
-          <label>Name</label>
+        <div class="fourteen wide field">
+          <label>Category Name</label>
           <input
             type="text"
             name="name"
@@ -24,7 +24,7 @@
           />
         </div> -->
 
-        <div class="six wide field">
+        <!-- <div class="six wide field">
           <label>E-mail</label>
           <input
             type="email"
@@ -33,7 +33,7 @@
             @change="handleChange"
             :value="form.email"
           />
-        </div>
+        </div> -->
 
         <div class="two wide field">
           <button :class="btnClass" @click="onFormSubmit">
@@ -97,10 +97,10 @@ export default {
       // }
 
       // email
-      if (document.getElementsByName("email")[0].value === "") {
-        alert("Enter email");
-        return false;
-      }
+      // if (document.getElementsByName("email")[0].value === "") {
+      //   alert("Enter email");
+      //   return false;
+      // }
 
       return true;
     },
@@ -109,7 +109,7 @@ export default {
       // this.form.first_name = "";
       // this.form.last_name = "";
        this.form.name = "";
-      this.form.email = "";
+      // this.form.email = "";
       this.form.isEdit = false;
 
       // clear form fields
