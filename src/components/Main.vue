@@ -34,7 +34,7 @@ export default {
       url: "http://127.0.0.1:8000/api/category/list",
       customers: [],
       // form: { first_name: "", last_name: "", email: "", isEdit: false },
-      form: {category_name: "", isEdit: false },
+      form: {name: "", isEdit: false },
       loader: false
     };
   },
@@ -89,7 +89,7 @@ export default {
           
           // first_name: data.first_name,
           // last_name: data.last_name,
-         name: data.category_name,
+         name: data.name,
           // email: data.email
         })
         .then(() => {
@@ -99,14 +99,14 @@ export default {
           alert(e);
         });
     },
-    onDelete(id) {
+    onDelete(category_id) {
       // window.console.log("app delete " + id);
-      this.deleteCustomer(id);
+      this.deleteCustomer(category_id);
     },
     onEdit(data) {
-      // console.log(data.category_id);
+      console.log(data.category_id);
       // window.console.log("app edit ", data);
-      this.form = data;
+      this.form.name = data.category_name;
       this.form.isEdit = true;
      
     },
