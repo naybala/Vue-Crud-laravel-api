@@ -70,7 +70,7 @@ export default {
       axios
         .post(this.url, {
           name: data.name,
-          email: data.email
+          // email: data.email
         })
         .then(() => {
           this.getCustomers();
@@ -80,33 +80,36 @@ export default {
         });
     },
 
-    //Edit
-    // editCustomer(data) {
-    //   this.loader = true;
-
-    //   axios
-    //     .put(`${this.url}/${data.id}`, {
-    //       // first_name: data.first_name,
-    //       // last_name: data.last_name,
-    //       name: data.name,
-    //       email: data.email
-    //     })
-    //     .then(() => {
-    //       this.getCustomers();
-    //     })
-    //     .catch(e => {
-    //       alert(e);
-    //     });
-    // },
-    // onDelete(id) {
-    //   // window.console.log("app delete " + id);
-    //   this.deleteCustomer(id);
-    // },
-    // onEdit(data) {
-    //   // window.console.log("app edit ", data);
-    //   this.form = data;
-    //   this.form.isEdit = true;
-    // },
+    // Edit
+    editCustomer(data) {
+      this.loader = true;
+      // console.log(data.category_name);
+      axios
+        .put(`${this.url}/${data.category_id}`, {
+          
+          // first_name: data.first_name,
+          // last_name: data.last_name,
+         name: data.category_name,
+          // email: data.email
+        })
+        .then(() => {
+          this.getCustomers();
+        })
+        .catch(e => {
+          alert(e);
+        });
+    },
+    onDelete(id) {
+      // window.console.log("app delete " + id);
+      this.deleteCustomer(id);
+    },
+    onEdit(data) {
+      // console.log(data.category_id);
+      // window.console.log("app edit ", data);
+      this.form = data;
+      this.form.isEdit = true;
+     
+    },
     onFormSubmit(data) {
       // window.console.log("app onFormSubmit", data);
       if (data.isEdit) {
