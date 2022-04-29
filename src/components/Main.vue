@@ -48,7 +48,7 @@ export default {
       });
     },
 
-    //Delete
+    // Delete
     // deleteCustomer(id) {
     //   this.loader = true;
 
@@ -63,23 +63,22 @@ export default {
     // },
 
     //Create
-    // createCustomer(data) {
-    //   this.loader = true;
+    createCustomer(data) {
+      console.log(data);
+      this.loader = true;
 
-    //   axios
-    //     .post(this.url, {
-    //       // first_name: data.first_name,
-    //       // last_name: data.last_name,
-    //       name: data.name,
-    //       email: data.email
-    //     })
-    //     .then(() => {
-    //       this.getCustomers();
-    //     })
-    //     .catch(e => {
-    //       alert(e);
-    //     });
-    // },
+      axios
+        .post(this.url, {
+          name: data.name,
+          email: data.email
+        })
+        .then(() => {
+          this.getCustomers();
+        })
+        .catch(e => {
+          alert(e);
+        });
+    },
 
     //Edit
     // editCustomer(data) {
@@ -108,16 +107,16 @@ export default {
     //   this.form = data;
     //   this.form.isEdit = true;
     // },
-    // onFormSubmit(data) {
-    //   // window.console.log("app onFormSubmit", data);
-    //   if (data.isEdit) {
-    //     // call edit customer
-    //     this.editCustomer(data);
-    //   } else {
-    //     // call create customer
-    //     this.createCustomer(data);
-    //   }
-    // }
+    onFormSubmit(data) {
+      // window.console.log("app onFormSubmit", data);
+      if (data.isEdit) {
+        // call edit customer
+        this.editCustomer(data);
+      } else {
+        // call create customer
+        this.createCustomer(data);
+      }
+    }
   },
   created() {
     this.getCustomers();

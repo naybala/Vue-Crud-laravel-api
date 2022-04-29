@@ -64,7 +64,7 @@ export default {
       const { name, value } = event.target;
       let form = this.form;
       form[name] = value;
-      this.form = form;
+      // this.form = form;
     },
     onFormSubmit(event) {
       // prevent form submit
