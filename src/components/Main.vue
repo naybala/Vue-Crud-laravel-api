@@ -103,7 +103,7 @@ export default {
     },
     onEdit(data) {
       // console.log("hello");
-        this.form.name = data.category_name;
+        this.form = data;
         this.form.isEdit = true;
     },
     onFormSubmit(data) {
