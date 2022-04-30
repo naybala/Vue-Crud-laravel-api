@@ -1,5 +1,4 @@
 <template>
-  
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
         <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
@@ -83,16 +82,15 @@ export default {
     // Edit
     editCustomer(data) {
       this.loader = true;
-      // console.log(data.category_name);
       axios
         .put(`${this.url}/${data.category_id}`, {
-          
           // first_name: data.first_name,
           // last_name: data.last_name,
-         name: data.name,
+          name: data.name, 
           // email: data.email
         })
         .then(() => {
+          console.log("hello");
           this.getCustomers();
         })
         .catch(e => {
@@ -104,11 +102,8 @@ export default {
       this.deleteCustomer(category_id);
     },
     onEdit(data) {
-      console.log(data.category_id);
-      // window.console.log("app edit ", data);
-      this.form.name = data.category_name;
-      this.form.isEdit = true;
-     
+        this.form = data;
+        this.form.isEdit = true;
     },
     onFormSubmit(data) {
       // window.console.log("app onFormSubmit", data);

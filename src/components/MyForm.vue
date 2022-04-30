@@ -12,29 +12,6 @@
             :value="form.name"
           />
         </div>
-
-        <!-- <div class="four wide field">
-          <label>Last Name</label>
-          <input
-            type="text"
-            name="last_name"
-            placeholder="Last Name"
-            @change="handleChange"
-            :value="form.last_name"
-          />
-        </div> -->
-
-        <!-- <div class="six wide field">
-          <label>E-mail</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="joe@gmail.com"
-            @change="handleChange"
-            :value="form.email"
-          />
-        </div> -->
-
         <div class="two wide field">
           <button :class="btnClass" @click="onFormSubmit">
             {{ btnName }}
