@@ -82,6 +82,7 @@ export default {
     // Edit
     editCustomer(data) {
       this.loader = true;
+      console.log("hello2");
       axios
         .put(`${this.url}/${data.category_id}`, {
           // first_name: data.first_name,
@@ -90,7 +91,6 @@ export default {
           // email: data.email
         })
         .then(() => {
-          console.log("hello");
           this.getCustomers();
         })
         .catch(e => {
@@ -102,7 +102,8 @@ export default {
       this.deleteCustomer(category_id);
     },
     onEdit(data) {
-        this.form = data;
+      // console.log("hello");
+        this.form.name = data.category_name;
         this.form.isEdit = true;
     },
     onFormSubmit(data) {
