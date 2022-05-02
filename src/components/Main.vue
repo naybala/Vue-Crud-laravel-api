@@ -8,8 +8,8 @@
     <div class="ui main container">
       <MyForm :form="form" @onFormSubmit="onFormSubmit" />
       <Loader v-if="loader" />
-      <CustomerList
-        :customers="customers"
+      <CategoryList
+        :categories="categories"
         @onDelete="onDelete"
         @onEdit="onEdit"
       />
@@ -19,47 +19,45 @@
 <script>
 import axios from 'axios'
 import MyForm from './MyForm.vue'
-import CustomerList from "./CustomerList.vue"
+import CategoryList from "./CategoryList.vue"
 import Loader from './Loader.vue'
 
 export default {
   components: {
     MyForm,
-    CustomerList,
+    CategoryList,
     Loader
   },
   data() {
     return {
       url: "http://127.0.0.1:8000/api/category/list",
-      customers: [],
-      // form: { first_name: "", last_name: "", email: "", isEdit: false },
+      categories: [],
       form: {name: "", isEdit: false },
       loader: false
     };
   },
   methods: {
-    //Get 
-    getCustomers() {
+    //Get List
+    getCategories() {
       this.loader = true;
       axios.get(this.url).then(data => {
-        this.customers = data.data;
+        this.categories = data.data;
         this.loader = false;
       });
     },
 
     // Delete
-    // deleteCustomer(id) {
-    //   this.loader = true;
-
-    //   axios
-    //     .delete(`${this.url}/${id}`)
-    //     .then(() => {
-    //       this.getCustomers();
-    //     })
-    //     .catch(e => {
-    //       alert(e);
-    //     });
-    // },
+    deleteCategory(category_id) {
+      this.loader = true;
+      axios
+        .delete(`${this.url}/${category_id}`)
+        .then(() => {
+          this. getCategories();
+        })
+        .catch(e => {
+          alert(e);
+        });
+    },
 
     //Create
     createCustomer(data) {
@@ -72,7 +70,7 @@ export default {
           // email: data.email
         })
         .then(() => {
-          this.getCustomers();
+          this.getCategories();
         })
         .catch(e => {
           alert(e);
@@ -80,29 +78,24 @@ export default {
     },
 
     // Edit
-    editCustomer(data) {
-      this.loader = true;
-      console.log("hello2");
-      axios
-        .put(`${this.url}/${data.category_id}`, {
-          // first_name: data.first_name,
-          // last_name: data.last_name,
-          name: data.name, 
-          // email: data.email
-        })
-        .then(() => {
-          this.getCustomers();
-        })
-        .catch(e => {
-          alert(e);
-        });
-    },
+    // editCategory(data) {
+    //   this.loader = true;
+    //   axios
+    //     .put(`${this.url}/${data.category_id}`, {
+    //           name: data.name, 
+    //     })
+    //     .then(() => {
+    //       this.getCategories();
+    //     })
+    //     .catch(e => {
+    //       alert(e);
+    //     });
+    // },
     onDelete(category_id) {
-      // window.console.log("app delete " + id);
-      this.deleteCustomer(category_id);
+     console.log("app delete " + category_id);
+      this.deleteCategory(category_id);
     },
     onEdit(data) {
-      // console.log("hello");
         this.form = data;
         this.form.isEdit = true;
     },
@@ -110,7 +103,7 @@ export default {
       // window.console.log("app onFormSubmit", data);
       if (data.isEdit) {
         // call edit customer
-        this.editCustomer(data);
+        this.editCategory(data);
       } else {
         // call create customer
         this.createCustomer(data);
@@ -118,7 +111,7 @@ export default {
     }
   },
   created() {
-    this.getCustomers();
+    this.getCategories();
   }
 };
 </script>

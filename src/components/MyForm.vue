@@ -66,30 +66,11 @@ export default {
         alert("Enter Name");
         return false;
       }
-
-      // last name
-      // if (document.getElementsByName("last_name")[0].value === "") {
-      //   alert("Enter last name");
-      //   return false;
-      // }
-
-      // email
-      // if (document.getElementsByName("email")[0].value === "") {
-      //   alert("Enter email");
-      //   return false;
-      // }
-
       return true;
     },
     clearFormFields() {
-      // clear form data
-      // this.form.first_name = "";
-      // this.form.last_name = "";
-       this.form.name = "";
-      // this.form.email = "";
+      this.form.name = "";
       this.form.isEdit = false;
-
-      // clear form fields
       document.querySelector(".form").reset();
     }
   },
