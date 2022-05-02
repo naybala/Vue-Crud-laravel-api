@@ -78,19 +78,19 @@ export default {
     },
 
     // Edit
-    // editCategory(data) {
-    //   this.loader = true;
-    //   axios
-    //     .put(`${this.url}/${data.category_id}`, {
-    //           name: data.name, 
-    //     })
-    //     .then(() => {
-    //       this.getCategories();
-    //     })
-    //     .catch(e => {
-    //       alert(e);
-    //     });
-    // },
+    editCategory(data) {
+      this.loader = true;
+      axios
+        .put(`${this.url}/${data.category_id}`, {
+              name: data.name, 
+        })
+        .then(() => {
+          this.getCategories();
+        })
+        .catch(e => {
+          alert(e);
+        });
+    },
     onDelete(category_id) {
      console.log("app delete " + category_id);
       this.deleteCategory(category_id);
@@ -98,9 +98,12 @@ export default {
     onEdit(data) {
         this.form = data;
         this.form.isEdit = true;
+        if(this.form.isEdit == true){
+          this.form.name = data.category_name;
+        }
     },
     onFormSubmit(data) {
-      // window.console.log("app onFormSubmit", data);
+      //console.log("app onFormSubmit", data);
       if (data.isEdit) {
         // call edit customer
         this.editCategory(data);

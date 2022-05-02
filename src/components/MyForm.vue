@@ -10,6 +10,7 @@
             placeholder="Name"
             @change="handleChange"
             :value="form.name"
+            autocomplete="off"
           />
         </div>
         <div class="two wide field">
