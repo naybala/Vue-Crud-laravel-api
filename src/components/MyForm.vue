@@ -29,20 +29,19 @@ export default {
   data() {
     return {
       btnName: "Save",
-      btnClass: "ui primary button submit-button"
+      btnClass: "ui primary button submit-button",
     };
   },
   props: {
     form: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     handleChange(event) {
       const { name, value } = event.target;
       let form = this.form;
       form[name] = value;
-      // this.form = form;
     },
     onFormSubmit(event) {
       // prevent form submit
@@ -50,7 +49,6 @@ export default {
 
       // form validation
       if (this.formValidation()) {
-        // window.console.log("ready to submit");
         this.$emit("onFormSubmit", this.form);
 
         // change the button to save
@@ -73,14 +71,14 @@ export default {
       this.form.name = "";
       this.form.isEdit = false;
       document.querySelector(".form").reset();
-    }
+    },
   },
   updated() {
     if (this.form.isEdit) {
       this.btnName = "Update";
       this.btnClass = "ui orange button submit-button";
     }
-  }
+  },
 };
 </script>
 

@@ -1,46 +1,42 @@
 <template>
-    <div class="ui fixed inverted menu vue-color">
-      <div class="ui container">
-        <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
-      </div>
+  <div class="ui fixed inverted menu vue-color">
+    <div class="ui container">
+      <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
     </div>
+  </div>
 
-    <div class="ui main container">
-      <MyForm :form="form" @onFormSubmit="onFormSubmit" />
-      <Loader v-if="loader" />
-      <CategoryList
-        :categories="categories"
-        @onDelete="onDelete"
-        @onEdit="onEdit"
-      />
-    </div>
+  <div class="ui main container">
+    <MyForm :form="form" @onFormSubmit="onFormSubmit" />
+    <Loader v-if="loader" />
+    <CategoryList :categories="categories" @onDelete="onDelete" @onEdit="onEdit" />
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
-import MyForm from './MyForm.vue'
-import CategoryList from "./CategoryList.vue"
-import Loader from './Loader.vue'
+import axios from "axios";
+import MyForm from "./MyForm.vue";
+import CategoryList from "./CategoryList.vue";
+import Loader from "./Loader.vue";
 
 export default {
   components: {
     MyForm,
     CategoryList,
-    Loader
+    Loader,
   },
   data() {
     return {
       url: "http://127.0.0.1:8000/api/category/list",
       categories: [],
-      form: {name: "", isEdit: false },
-      loader: false
+      form: { name: "", isEdit: false },
+      loader: false,
     };
   },
   methods: {
     //Get List
     getCategories() {
       this.loader = true;
-      axios.get(this.url).then(data => {
+      axios.get(this.url).then((data) => {
         this.categories = data.data;
         this.loader = false;
       });
@@ -52,9 +48,9 @@ export default {
       axios
         .delete(`${this.url}/${category_id}`)
         .then(() => {
-          this. getCategories();
+          this.getCategories();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
@@ -72,7 +68,7 @@ export default {
         .then(() => {
           this.getCategories();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
@@ -82,28 +78,27 @@ export default {
       this.loader = true;
       axios
         .put(`${this.url}/${data.category_id}`, {
-              name: data.name, 
+          name: data.name,
         })
         .then(() => {
           this.getCategories();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
     onDelete(category_id) {
-     console.log("app delete " + category_id);
+      console.log("app delete " + category_id);
       this.deleteCategory(category_id);
     },
     onEdit(data) {
-        this.form = data;
-        this.form.isEdit = true;
-        if(this.form.isEdit == true){
-          this.form.name = data.category_name;
-        }
+      this.form = data;
+      this.form.isEdit = true;
+      if (this.form.isEdit == true) {
+        this.form.name = data.category_name;
+      }
     },
     onFormSubmit(data) {
-      //console.log("app onFormSubmit", data);
       if (data.isEdit) {
         // call edit customer
         this.editCategory(data);
@@ -111,17 +106,17 @@ export default {
         // call create customer
         this.createCustomer(data);
       }
-    }
+    },
   },
   created() {
     this.getCategories();
-  }
+  },
 };
 </script>
 
 <style>
 .vue-color {
-  background: #41b883 !important;
+  background: #244ec2 !important;
 }
 
 .main.container {

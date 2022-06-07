@@ -19,11 +19,9 @@ export default {
   },
   methods: {
     onDelete() {
-      // console.log("customer delete " + this.customer.id);
       this.$emit("onDelete", this.category.category_id);
     },
     onEdit() {
-      // console.log("customer edit " + this.customer.id);
       this.$emit("onEdit", this.category);
     }
   }
