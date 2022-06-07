@@ -6,7 +6,6 @@
           <tr>
             <th style="width: 50px; text-align: center;">#</th>
             <th>Name</th>
-            <!-- <th>E-mail</th> -->
             <th style="width: 148px;">Action</th>
           </tr>
         </thead>
@@ -39,11 +38,9 @@ export default {
   },
   methods: {
     onDelete(category_id) {
-      //console.log("customer list delete " + id);
       this.$emit("onDelete", category_id);
     },
     onEdit(data) {
-      //console.log("customer list edit " + data);
       this.$emit("onEdit", data);
     }
   }
