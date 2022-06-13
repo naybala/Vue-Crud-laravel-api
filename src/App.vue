@@ -1,19 +1,16 @@
 <template>
-<div id="app">
-   <Main/>
-</div>
+  <div id="app">
+    <Navbar />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import Main from "./components/Main.vue"
+import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
-  components: {
-    Main,
-  },
-}
+  components: { Navbar },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
