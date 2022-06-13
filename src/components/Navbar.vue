@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg py-3 bg-primary">
     <div class="container">
-      <a class="navbar-brand text-white" href="#">Navbar</a>
+      <a class="navbar-brand text-white fw-bold fs-3" href="#"
+        >Vue+Laravel Api Crud Test</a
+      >
       <button
         class="navbar-toggler"
         type="button"

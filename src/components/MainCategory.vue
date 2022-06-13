@@ -1,11 +1,6 @@
 <template>
-  <!-- <div class="ui fixed inverted menu vue-color">
-    <div class="ui container">
-      <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
-    </div>
-  </div> -->
-
-  <div class="ui main container">
+  <br /><br /><br />
+  <div class="container">
     <MyForm :form="form" @onFormSubmit="onFormSubmit" />
     <Loader v-if="loader" />
     <CategoryList :categories="categories" @onDelete="onDelete" @onEdit="onEdit" />

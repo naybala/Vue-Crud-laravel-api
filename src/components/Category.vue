@@ -2,9 +2,9 @@
   <tr>
     <td>{{ category.category_id }}</td>
     <td>{{ category.category_name }}</td>
-    <td>
-      <button class="mini ui blue button" @click="onEdit">Edit</button>
-      <button class="mini ui red button" @click="onDelete">Delete</button>
+    <td class="text-center">
+      <button class="btn btn-primary me-1" @click="onEdit">Edit</button>
+      <button class="btn btn-danger" @click="onDelete">Delete</button>
     </td>
   </tr>
 </template>
@@ -14,8 +14,8 @@ export default {
   name: "Category",
   props: {
     category: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     onDelete() {
@@ -23,8 +23,8 @@ export default {
     },
     onEdit() {
       this.$emit("onEdit", this.category);
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -1,25 +1,26 @@
 <template>
-  <div class="category-list">
-    <div class="data">
-      <table class="ui celled table">
-        <thead>
-          <tr>
-            <th style="width: 50px; text-align: center;">#</th>
-            <th>Name</th>
-            <th style="width: 148px;">Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <Category
-            v-for="category in categories"
-            :key="category.category_id"
-            :category="category"
-            @onDelete="onDelete"
-            @onEdit="onEdit"
-          />
-        </tbody>
-      </table>
+  <div class="conatiner">
+    <div class="category-list">
+      <div class="data">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th class="text-center">Opertaion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <Category
+              v-for="category in categories"
+              :key="category.category_id"
+              :category="category"
+              @onDelete="onDelete"
+              @onEdit="onEdit"
+            />
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </template>
@@ -29,12 +30,12 @@ import Category from "./Category.vue";
 export default {
   name: "CategoryList",
   components: {
-    Category
+    Category,
   },
   props: {
     categories: {
-      type: Array
-    }
+      type: Array,
+    },
   },
   methods: {
     onDelete(category_id) {
@@ -42,8 +43,8 @@ export default {
     },
     onEdit(data) {
       this.$emit("onEdit", data);
-    }
-  }
+    },
+  },
 };
 </script>
 
