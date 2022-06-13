@@ -10,7 +10,7 @@ const router = createRouter({
 		},
 		{
 			path: '/product',
-			component: () => import('../components/MainPorduct.vue')
+			component: () => import('../components/MainPizza.vue')
 		},
 	],
 })
