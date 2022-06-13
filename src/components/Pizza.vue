@@ -24,9 +24,12 @@ export default {
     product: {
       type: Object,
     },
-    category: {
-      type: Object,
-    },
+  },
+  data() {
+    return {
+      url: "http://127.0.0.1:8000/api/category/list",
+      categories: [],
+    };
   },
   methods: {
     onDelete() {
@@ -34,6 +37,12 @@ export default {
     },
     onEdit() {
       this.$emit("onEdit", this.product);
+    },
+    getCategories() {
+      axios.get(this.url).then((data) => {
+        console.log(data.category_id);
+        this.categories = data.data;
+      });
     },
   },
 };
