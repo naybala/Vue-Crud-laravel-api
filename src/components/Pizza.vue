@@ -43,42 +43,7 @@
               ></button>
             </div>
             <div class="modal-body text-start">
-              <div class="container">
-                <form>
-                  <div class="mb-3">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Price</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Publish Status</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Category</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Discount</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Buy One Get One</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Waiting Time</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <input type="text" class="form-control" />
-                  </div>
-                </form>
-              </div>
+              <MyFormPizzaVue />
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
@@ -95,6 +60,8 @@
 </template>
 
 <script>
+import MyFormPizzaVue from "./MyFormPizza.vue";
+
 export default {
   name: "Pizza",
   props: {
@@ -122,6 +89,7 @@ export default {
       });
     },
   },
+  components: { MyFormPizzaVue },
 };
 </script>
 
