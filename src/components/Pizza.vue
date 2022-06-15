@@ -69,24 +69,13 @@ export default {
       type: Object,
     },
   },
-  data() {
-    return {
-      url: "http://127.0.0.1:8000/api/category/list",
-      categories: [],
-    };
-  },
+
   methods: {
     onDelete() {
       this.$emit("onDelete", this.category.pizza_id);
     },
     onEdit() {
       this.$emit("onEdit", this.product);
-    },
-    getCategories() {
-      axios.get(this.url).then((data) => {
-        console.log(data.category_id);
-        this.categories = data.data;
-      });
     },
   },
   components: { MyFormPizzaVue },

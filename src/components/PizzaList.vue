@@ -20,7 +20,7 @@
           <tbody>
             <Pizza
               v-for="product in products"
-              :key="product.pizza_name"
+              :key="product.pizza_id"
               :product="product"
               @onDelete="onDelete"
               @onEdit="onEdit"
