@@ -60,8 +60,6 @@
 </template>
 
 <script>
-import MyFormPizzaVue from "./MyFormPizza.vue";
-
 export default {
   name: "Pizza",
   props: {
@@ -72,13 +70,12 @@ export default {
 
   methods: {
     onDelete() {
-      this.$emit("onDelete", this.category.pizza_id);
+      this.$emit("onDelete", this.product.pizza_id);
     },
     onEdit() {
       this.$emit("onEdit", this.product);
     },
   },
-  components: { MyFormPizzaVue },
 };
 </script>
 

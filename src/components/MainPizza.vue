@@ -1,6 +1,7 @@
 <template>
   <br /><br /><br />
   <div class="container">
+    <MyFormPizza :form="form" @onFormSubmit="onFormSubmit" />
     <Loader v-if="loader" />
     <PizzaList :products="pizzas" @onDelete="onDelete" @onEdit="onEdit" />
   </div>
@@ -10,21 +11,19 @@
 import axios from "axios";
 import PizzaList from "./PizzaList.vue";
 import Loader from "./Loader.vue";
+import MyFormPizzaVue from "./MyFormPizza.vue";
 
 export default {
   components: {
     PizzaList,
     Loader,
+    MyFormPizzaVue,
   },
   data() {
     return {
       url: "http://127.0.0.1:8000/api/pizza/list",
       pizzas: [],
-
-      // urlCategory: "http://127.0.0.1:8000/api/category/list",
-      // categories: [],
-
-      //   form: { name: "", isEdit: false },
+      form: { name: "", isEdit: false },
       loader: false,
     };
   },
@@ -33,21 +32,29 @@ export default {
     getProductList() {
       this.loader = true;
       axios.get(this.url).then((data) => {
-        // console.log(data["data"]);
         this.pizzas = data.data;
         this.loader = false;
       });
     },
-    // getCategoryName() {
-    //   axios.get(this.urlCategory).then((dataCategory) => {
-    //     // console.log(dataCategory["data"]);
-    //     this.categories = dataCategory.data;
-    //   });
-    // },
+    // Delete
+    deleteProdcut(pizza_id) {
+      this.loader = true;
+      axios
+        .delete(`${this.url}/${pizza_id}`)
+        .then(() => {
+          this.getProductList();
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    },
+    onDelete(pizza_id) {
+      // console.log("app delete " + pizza_id);
+      this.deleteCategory(pizza_id);
+    },
   },
   created() {
     this.getProductList();
-    // this.getCategoryName();
   },
 };
 </script>
