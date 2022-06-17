@@ -11,19 +11,29 @@
 import axios from "axios";
 import PizzaList from "./PizzaList.vue";
 import Loader from "./Loader.vue";
-import MyFormPizzaVue from "./MyFormPizza.vue";
+import MyFormPizza from "./MyFormPizza.vue";
 
 export default {
   components: {
     PizzaList,
     Loader,
-    MyFormPizzaVue,
+    MyFormPizza,
   },
   data() {
     return {
       url: "http://127.0.0.1:8000/api/pizza/list",
       pizzas: [],
-      form: { name: "", isEdit: false },
+      form: {
+        name: "",
+        // price: "",
+        // publishStatus: "",
+        // category: "",
+        // discount: "",
+        // buyOneGetOne: "",
+        // waitingTime: "",
+        // description: "",
+        isEdit: false,
+      },
       loader: false,
     };
   },
@@ -48,9 +58,44 @@ export default {
           alert(e);
         });
     },
+    // Edit
+    editPizza(data) {
+      this.loader = true;
+      axios
+        .put(`${this.url}/${data.pizza_id}`, {
+          name: data.piza_name,
+          price: data.price,
+          publishStatus: data.publish_status,
+          category: data.category_id,
+          discount: data.discount_price,
+          buyOneGetOne: data.buy_one_get_one_status,
+          waitingTime: data.waiting_time,
+          description: data.description,
+        })
+        .then(() => {
+          this.getProductList();
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    },
     onDelete(pizza_id) {
       // console.log("app delete " + pizza_id);
       this.deleteCategory(pizza_id);
+    },
+    onEdit(data) {
+      this.form = data;
+      this.form.isEdit = true;
+      if (this.form.isEdit == true) {
+        this.form.name = data.pizza_name;
+        this.form.price = data.price;
+        this.publishStatus = data.publish_status;
+        this.category = data.category_id;
+        this.discount = data.discount_price;
+        this.buyOneGetOne = data.buy_one_get_one_status;
+        this.waitingTime = data.waiting_time;
+        this.description = data.description;
+      }
     },
   },
   created() {

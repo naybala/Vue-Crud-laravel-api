@@ -7,7 +7,7 @@
           <input
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="Add Name"
             @change="handleChange"
             :value="form.name"
             autocomplete="off"
