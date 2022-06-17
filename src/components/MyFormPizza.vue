@@ -1,9 +1,9 @@
 <template>
   <div class="my-form">
+    <label>Pizza Details </label>
     <form class="ui form">
       <div class="fields">
-        <div class="fourteen wide field">
-          <label>Pizza Name</label>
+        <div class="four wide field">
           <input
             type="text"
             name="name"
@@ -13,11 +13,67 @@
             autocomplete="off"
           />
         </div>
-        <div class="two wide field">
-          <button :class="btnClass" @click="onFormSubmit">
-            {{ btnName }}
-          </button>
+        <div class="four wide field">
+          <input
+            type="text"
+            name="price"
+            placeholder="Add ZAy"
+            @change="handleChange"
+            :value="form.price"
+            autocomplete="off"
+          />
         </div>
+        <div class="four wide field">
+          <input
+            type="text"
+            name="price"
+            placeholder="Add ZAy"
+            @change="handleChange"
+            :value="form.price"
+            autocomplete="off"
+          />
+        </div>
+        <div class="four wide field">
+          <input
+            type="text"
+            name="price"
+            placeholder="Add ZAy"
+            @change="handleChange"
+            :value="form.price"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <div class="fields">
+        <div class="six wide field">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+          </select>
+        </div>
+        <div class="six wide field">
+          <select class="form-select form-select-sm" aria-label=".form-select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="six wide field">
+          <select class="form-select form-select-sm" aria-label=".form-select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button :class="btnClass" @click="onFormSubmit">
+          {{ btnName }}
+        </button>
       </div>
     </form>
   </div>
