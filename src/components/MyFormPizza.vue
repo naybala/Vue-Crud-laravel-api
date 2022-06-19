@@ -1,9 +1,9 @@
 <template>
   <div class="my-form">
-    <label>Pizza Details </label>
     <form class="ui form">
       <div class="fields">
         <div class="four wide field">
+          <label>Pizza Name </label>
           <input
             type="text"
             name="name"
@@ -14,32 +14,35 @@
           />
         </div>
         <div class="four wide field">
+          <label>Pizza Price </label>
           <input
             type="text"
             name="price"
-            placeholder="Add ZAy"
+            placeholder="mmk"
             @change="handleChange"
             :value="form.price"
             autocomplete="off"
           />
         </div>
         <div class="four wide field">
+          <label>Discount </label>
           <input
             type="text"
-            name="price"
-            placeholder="Add ZAy"
+            name="discount"
+            placeholder="mmk"
             @change="handleChange"
-            :value="form.price"
+            :value="form.discount_price"
             autocomplete="off"
           />
         </div>
         <div class="four wide field">
+          <label>Waiting Time</label>
           <input
             type="text"
-            name="price"
-            placeholder="Add ZAy"
+            name="waitingTime"
+            placeholder="minutes"
             @change="handleChange"
-            :value="form.price"
+            :value="form.waiting_time"
             autocomplete="off"
           />
         </div>
@@ -85,7 +88,7 @@ export default {
   data() {
     return {
       btnName: "Save",
-      btnClass: "ui primary button submit-button",
+      btnClass: "ui primary button submit-button ",
     };
   },
   props: {
