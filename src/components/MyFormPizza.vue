@@ -49,26 +49,35 @@
       </div>
       <div class="fields">
         <div class="six wide field">
-          <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
+          <label>Publish Status</label>
+          <select
+            class="form-select form-select-sm"
+            name=""
+            :value="form.publish_status"
+            @change="handleChange"
+          >
+            <option value="1">On</option>
+            <option value="0">Off</option>
           </select>
         </div>
         <div class="six wide field">
-          <select class="form-select form-select-sm" aria-label=".form-select example">
-            <option selected>Open this select menu</option>
+          <label>Category </label>
+          <select class="form-select form-select-sm" @change="handleChange" name="">
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
         </div>
         <div class="six wide field">
-          <select class="form-select form-select-sm" aria-label=".form-select example">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+          <label>Buy One Get One Status </label>
+          <select
+            class="form-select form-select-sm"
+            @change="handleChange"
+            name=""
+            :value="form.buy_one_get_one_status"
+          >
+            <option value="1">On</option>
+            <option value="0">Off</option>
           </select>
         </div>
       </div>

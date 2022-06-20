@@ -5,7 +5,7 @@
     <td>{{ product.price }} mmk</td>
     <td v-if="product.publish_status == 1">in Stock</td>
     <td v-else>out of stock</td>
-    <td>{{ product.category_id }}</td>
+    <td>{{ product.category_name }}</td>
     <td>{{ product.discount_price }} mmk</td>
     <td v-if="product.buy_one_get_one_status == 1">Buy One Get One</td>
     <td v-else>Off</td>
