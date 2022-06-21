@@ -63,9 +63,17 @@
         <div class="six wide field">
           <label>Category </label>
           <select class="form-select form-select-sm" @change="handleChange" name="">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <!-- <option :value="form.category_id">
+              {{ form.category_name }}
+            </option> -->
+            <option
+              v-for="item in form.category_id"
+              :key="item.category_id"
+              :item="item"
+              :value="form.category_id"
+            >
+              {{ form.category_name }}
+            </option>
           </select>
         </div>
         <div class="six wide field">
@@ -82,7 +90,7 @@
         </div>
       </div>
 
-      <div class="d-grid gap-2">
+      <div class="d-grid gap-2 six wide field float-end mb-3">
         <button :class="btnClass" @click="onFormSubmit">
           {{ btnName }}
         </button>
