@@ -25,13 +25,6 @@ export default {
       pizzas: [],
       form: {
         name: "",
-        // price: "",
-        // publishStatus: "",
-        // category: "",
-        // discount: "",
-        // buyOneGetOne: "",
-        // waitingTime: "",
-        // description: "",
         isEdit: false,
       },
       loader: false,

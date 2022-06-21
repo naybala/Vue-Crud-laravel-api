@@ -63,16 +63,8 @@
         <div class="six wide field">
           <label>Category </label>
           <select class="form-select form-select-sm" @change="handleChange" name="">
-            <!-- <option :value="form.category_id">
-              {{ form.category_name }}
-            </option> -->
-            <option
-              v-for="item in form.category_id"
-              :key="item.category_id"
-              :item="item"
-              :value="form.category_id"
-            >
-              {{ form.category_name }}
+            <option v-for="item in 10" :key="item._id" :item="item">
+              {{ item }}
             </option>
           </select>
         </div>
