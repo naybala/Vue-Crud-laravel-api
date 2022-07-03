@@ -19,7 +19,7 @@
         <div class="navbar-nav ms-auto">
           <router-link to="/" class="button">
             <li class="nav-item active">
-              <a class="nav-link text-white" aria-current="page">Category List</a>
+              <a class="nav-link text-white active" aria-current="page">Category List</a>
             </li>
           </router-link>
           <router-link to="/product" class="button">
@@ -37,5 +37,10 @@
 <style>
 a {
   text-decoration: none;
+}
+
+a.nav-link.active {
+  background-color: black;
+  border-radius: 1rem;
 }
 </style>
