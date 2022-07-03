@@ -16,15 +16,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
+        <div class="navbar-nav ms-auto" @click="activeChanger">
           <router-link to="/" class="button">
             <li class="nav-item active">
-              <a class="nav-link text-white active" aria-current="page">Category List</a>
+              <a class="nav-link text-white active" aria-current="page" data-id="category"
+                >Category List</a
+              >
             </li>
           </router-link>
           <router-link to="/product" class="button">
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page">Product List</a>
+              <a class="nav-link text-white" aria-current="page" data-id="product"
+                >Product List</a
+              >
             </li>
           </router-link>
         </div>
@@ -33,14 +37,35 @@
   </nav>
 </template>
 
-<script></script>
-<style>
+<script>
+export default {
+  methods: {
+    activeChanger(e) {
+      const navActive = document.querySelectorAll(".nav-link");
+      const id = e.target.dataset.id;
+      if (id) {
+        navActive.forEach(function (a) {
+          a.classList.remove("active");
+        });
+        e.target.classList.add("active");
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
 a {
   text-decoration: none;
+  transition: all 0s;
 }
 
 a.nav-link.active {
   background-color: black;
   border-radius: 1rem;
+  transition: all 0s;
 }
 </style>
+
+// const nav = document.querySelector(".navbar-nav") // //
+nav.addEventListener("click",(e)=>{ // });
