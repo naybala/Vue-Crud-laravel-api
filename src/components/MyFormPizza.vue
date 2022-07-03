@@ -63,7 +63,7 @@
         <div class="six wide field">
           <label>Category </label>
           <select class="form-select form-select-sm" @change="handleChange" name="">
-            <option v-for="item in 10" :key="item._id" :item="item">
+            <option v-for="item in 10" :key="item.id" :item="item">
               {{ item }}
             </option>
           </select>
